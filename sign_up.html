@@ -31,7 +31,8 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Enter question" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Enter question" aria-label="Search"
+                           maxlength="30">
                     <button class="btn btn-primary me-2" type="submit">Search</button>
                 </form>
                 <div class="text-end">
@@ -54,7 +55,7 @@
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">First name</label>
                             <input type="text" class="form-control" id="firstName" placeholder="Mario" value=""
-                                   required>
+                                   required maxlength="50">
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
@@ -62,7 +63,8 @@
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Gayle" value="" required>
+                            <input type="text" class="form-control" id="lastName" placeholder="Gayle" value="" required
+                                   maxlength="50">
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -72,7 +74,8 @@
                             <label for="username" class="form-label">Username</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                <input type="text" class="form-control" id="username" placeholder="Username" required
+                                       maxlength="50">
                                 <div class="invalid-feedback">
                                     Your username is required.
                                 </div>
@@ -81,7 +84,8 @@
 
                         <div class="col-12">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com" required
+                                   maxlength="30">
                             <div class="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                             </div>
@@ -117,6 +121,10 @@
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="save-info">
                         <label class="form-check-label" for="save-info">Receive commercial emails</label>
+                    </div>
+
+                    <div class="p-1">
+                        <a class="register" href="sign_in.html">Already have an account?</a>
                     </div>
 
                     <hr class="my-4">

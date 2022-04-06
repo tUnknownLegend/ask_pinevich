@@ -29,7 +29,7 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Enter question" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Enter question" aria-label="Search" maxlength="30">
                     <button class="btn btn-primary me-2" type="submit">Search</button>
                 </form>
                 <div class="text-end">
@@ -37,7 +37,7 @@
                     <a class="btn btn-warning">USERNAME</a>
                     <a href="#" class="btn btn-dark me-2" role="button"
                        aria-pressed="true">Sign-out</a>
-                    <a href="#" class="btn btn-outline-light" role="button" aria-pressed="true">Settings</a>
+                    <a href="settings.html" class="btn btn-outline-light" role="button" aria-pressed="true">Settings</a>
                 </div>
             </div>
         </div>
@@ -53,16 +53,16 @@
                 <form>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Question title</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxlength="30">
                         <div id="emailHelp" class="form-text">e.g. How to buy bitcoin?</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Question body</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="1000"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="questionTags" class="form-label">Tags</label>
-                        <input type="text" class="form-control" id="questionTags" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="questionTags" aria-describedby="emailHelp" maxlength="100">
                         <div id="tagsHelp" class="form-text">e.g. bitcoin</div>
                     </div>
                     <div class="mb-3 form-check">
