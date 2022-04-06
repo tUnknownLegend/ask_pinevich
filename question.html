@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, Vlad Pinevich and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Ask me</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column h-100">
+
+<body class="d-flex flex-column h-100">
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Ask Pinevich</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="ask.html">Create question</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Enter question" aria-label="Search">
+                    <button class="btn btn-primary me-2" type="submit">Search</button>
+                </form>
+                <div class="text-end">
+                    <img class="avatar-header" src="img/bear.png" alt="">
+                    <a class="btn btn-warning">USERNAME</a>
+                    <a href="#" class="btn btn-dark me-2" role="button"
+                       aria-pressed="true">Sign-out</a>
+                    <a href="#" class="btn btn-outline-light" role="button" aria-pressed="true">Settings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <div class="row full_question">
+                    <div class="col-2">
+                        <img class="avatar-question-full " src="img/bear.png" alt="">
+                        <div class="rate">
+                            <button class="w-1 m-1 text-danger border-0">-</button>
+                            <h7 class="text-success">123</h7>
+                            <button class="w-1 m-1 text-success border-0">+</button>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <h2>How to make a chair?</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                        <span>
+                            <a>Tags: </a>
+                            <a class="" href="#">SQL</a>
+                            <a class="" href="#">Python</a>
+                        </span>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="row">
+
+                    <div class="row question">
+                        <div class="col-2">
+                            <img class="avatar-question" src="img/bear.png" alt="">
+                            <div class="rate">
+                                <button class="w-1 m-1 text-danger border-0">-</button>
+                                <h7 class="text-success">123</h7>
+                                <button class="w-1 m-1 text-success border-0">+</button>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                                took a
+                                galley of type and scrambled it to make a type specimen book.
+                            </p>
+                            <span>
+                            <input type="checkbox" class="form-check-input" id="">
+                            <label class="form-check-label">Correct</label>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="row question">
+                        <div class="col-2">
+                            <img class="avatar-question" src="img/bear.png" alt="">
+                            <div class="rate">
+                                <button class="w-1 m-1 text-danger border-0">-</button>
+                                <h7 class="text-danger">127</h7>
+                                <button class="w-1 m-1 text-success border-0">+</button>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <p>Lorem Mupsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has
+                                been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                                took a
+                                galley of type and scrambled it to make a type specimen book.
+                            </p>
+                            <span>
+                            <input type="checkbox" class="form-check-input" id="correct">
+                            <label class="form-check-label">Correct</label>
+                        </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="my-4">
+
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Your answer</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                              placeholder="Enter answer"></textarea>
+                    <button type="submit" class="btn btn-primary mt-2">Answer</button>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <h2 class="mt-5">Tags</h2>
+                <div class="row justify-content-between">
+                    <div class="col-md-auto">perl</div>
+                    <div class="col-md-auto">C</div>
+                    <div class="col-md-auto">SQL</div>
+                    <div class="col-md-auto">python</div>
+                    <div class="col-md-auto">C++</div>
+                    <div class="col-md-auto">Pascal</div>
+                    <div class="col-md-auto">Basic</div>
+                    <div class="col-md-auto">ASCII</div>
+                    <div class="col-md-auto">Django</div>
+                    <div class="col-md-auto">Web</div>
+                    <div class="col-md-auto">git</div>
+                </div>
+                <h2 class="mt-3">Best Members</h2>
+                <div class="row justify-content-between">
+                    <a href="#" class="h6">Mr. Who</a>
+                    <a href="#" class="h6">Mr. What</a>
+                    <a href="#" class="h6">Mr. Where</a>
+                    <a href="#" class="h6">Mr. Why</a>
+                    <a href="#" class="h6">Mr. How</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+    </div>
+</footer>
+
+
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
