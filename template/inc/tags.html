@@ -1,0 +1,6 @@
+{% load static %}
+<div class="row justify-content-around">
+    {% for tagName in tags %}
+        <div class="col-md-auto">{{ tagName.title }}</div>
+    {% endfor %}
+</div>

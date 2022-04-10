@@ -1,0 +1,46 @@
+{% extends "inc/base.html" %}
+{% load static %}
+
+{% block addHeader %}
+    <title>New Q</title>
+{% endblock addHeader %}
+
+{% block header %}
+    {% include "inc/header-logged-in.html" %}
+{% endblock header %}
+
+{% block content %}
+    <h2 class="mt-5">Ask question</h2>
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Question title</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   maxlength="30">
+            <div id="emailHelp" class="form-text">e.g. How to buy bitcoin?</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Question body</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                      maxlength="1000"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="questionTags" class="form-label">Tags</label>
+            <input type="text" class="form-control" id="questionTags" aria-describedby="emailHelp"
+                   maxlength="100">
+            <div id="tagsHelp" class="form-text">e.g. bitcoin</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock content %}
+
+{% block side-panel %}
+    <h2 class="mt-5">Tags</h2>
+    {% include "inc/tags.html" %}
+
+    <h2 class="mt-3">Best Members</h2>
+    {% include "inc/best-members.html" %}
+{% endblock side-panel %}
+
+{% block footer %}
+
+{% endblock footer %}

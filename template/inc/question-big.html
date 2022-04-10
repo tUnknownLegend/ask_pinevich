@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="row full_question">
+    <div class="col-2">
+        <img class="avatar-question-full" src="{% static "img/bear.png" %}" alt="">
+        <div class="rate">
+            <button class="w-1 m-1 text-danger border-0">-</button>
+            <h7 class="text-success">{{ question.rating }}</h7>
+            <button class="w-1 m-1 text-success border-0">+</button>
+        </div>
+
+        <div>
+            <div class="align-items-end mt-1">
+                <a>Tags:<br></a>
+                {% for i in question.tag %}
+                    <a class="" href="#">{{ i }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <h2 class="mt-2 m-2"><a href="{% url "question" question.number %}">{{ question.title }}</a></h2>
+
+        <p class="question-big" style="height: 140px;">{{ question.text }}</p>
+
+    </div>
+
+</div>

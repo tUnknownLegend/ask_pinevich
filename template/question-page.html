@@ -1,0 +1,39 @@
+{% extends "inc/base.html" %}
+{% load static %}
+{% block addHeader %}
+    <title>Question</title>
+{% endblock addHeader %}
+
+{% block header %}
+    {% include "inc/header-logged-in.html" %}
+{% endblock header %}
+
+{% block content %}
+    {% include "inc/question-big.html" %}
+
+    <hr class="my-4">
+
+    {% for answer in answers %}
+        {% include "inc/answer.html" %}
+    {% endfor %}
+
+    <hr class="my-4">
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Your answer</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                  placeholder="Enter answer"></textarea>
+        <button type="submit" class="btn btn-primary mt-2">Answer</button>
+    </div>
+{% endblock content %}
+
+{% block side-panel %}
+    <h2 class="mt-5">Tags</h2>
+    {% include "inc/tags.html" %}
+
+    <h2 class="mt-3">Best Members</h2>
+    {% include "inc/best-members.html" %}
+{% endblock side-panel %}
+
+{% block footer %}
+{% endblock footer %}
