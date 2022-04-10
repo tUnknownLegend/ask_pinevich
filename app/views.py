@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 
 # Create your views here.
-amtOfQuestions = 5
+amtOfQuestions = 10
+question_list = []
+for i in range(amtOfQuestions):
+    question_list.append(i)
+
 tagList = []
 for i in range(amtOfQuestions):
     tagList.append(["SQL", "Python"])
@@ -25,7 +30,7 @@ ANSWERS = [
         "text": f"This is text for ans #{i}",
         "number": i,
         "rating": rating[i]
-    } for i in range(3)
+    } for i in range(10)
 ]
 
 tagName = ["perl", "C", "SQL", "python", "C++", "Pascal", "Basic", "ASCII", "Django", "Web", "git"]
@@ -45,8 +50,18 @@ MEMBERS = [
 ]
 
 
+def paginate(objects_list, request, per_page=3):
+    paginator = Paginator(objects_list, per_page)
+    page = request.GET.get('page')
+    # page1 = paginator.page(1)
+    # page_range = paginator.page_range
+    res = paginator.get_page(page)
+    return res
+
+
 def index(request):
-    return render(request, "index.html", {"questions": QUESTIONS, "tags": TAGS, "members": MEMBERS})
+    p = paginate(QUESTIONS, request)
+    return render(request, "index.html", {"questions": p, "tags": TAGS, "members": MEMBERS})
 
 
 def ask(request):
@@ -58,24 +73,33 @@ def question(request, i: int):
                   {"question": QUESTIONS[i], "tags": TAGS, "members": MEMBERS, "answers": ANSWERS})
 
 
-def base(request):
-    return render(request, "inc/base.html")
-
-
 def hot(request):
-    return render(request, "index.html", {"questions": QUESTIONS, "tags": TAGS, "members": MEMBERS})
+    p = paginate(QUESTIONS, request)
+    return render(request, "index.html", {"questions": p, "tags": TAGS, "members": MEMBERS})
+
+
+def custom_handler_404(request):
+    response = render(request, '404.html', )
+    response.status_code = 404
+    return response
 
 
 def tag(request, s: str):
-    return render(request, "index.html", {"questions": QUESTIONS, "tags": TAGS, "members": MEMBERS})
+    for j in tagList:
+        if s in j:
+            return render(request, "index.html",
+                          {"questions": paginate(QUESTIONS, request), "tags": TAGS, "members": MEMBERS})
+        else:
+            return HttpResponse(status=404)
 
 
-def logIn(request):
+def log_in(request):
     return render(request, "log-in.html", {"tags": TAGS, "members": MEMBERS})
 
 
-def signUp(request):
+def sign_up(request):
     return render(request, "sign-up.html", {"tags": TAGS, "members": MEMBERS})
+
 
 def settings(request):
     return render(request, "settings.html", {"tags": TAGS, "members": MEMBERS})

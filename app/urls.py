@@ -8,7 +8,7 @@ urlpatterns = [
     path('question/<int:i>', views.question, name="question"),
     path('hot/', views.hot, name="hot"),
     path('tag/<str:s>', views.tag, name="tag"),
-    path('login/', views.logIn, name="log-in"),
-    path('signup/', views.signUp, name="sign-up"),
+    path('login/', views.log_in, name="log-in"),
+    path('signup/', views.sign_up, name="sign-up"),
     path('settings/', views.settings, name="settings")
 ]

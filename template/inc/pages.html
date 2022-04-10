@@ -1,9 +1,27 @@
 {% load static %}
 
 <span class="pages">
-    <button class="m-1">1</button>
-    <button class="m-1">2</button>
-    <button class="m-1">3</button>
-    <button class="m-1">...</button>
-    <button class="m-1">50</button>
+
+    {% if questions.has_previous %}
+        <a class="m-1" href="?page={{ questions.previous_page_number }}">
+            <button>previous</button>
+        </a>
+    {% endif %}
+
+    <a class="m-1 p-1" href="?page={{ questions }}">
+        <button style="color: #0a53be">{{ questions }}</button>
+    </a>
+
+    {% if questions.has_next %}
+
+        <a class="m-1" href="?page={{ questions.next_page_number }}">
+           <button>next</button>
+       </a>
+        {% if questions.next_page_number != questions.paginator.num_pages %}
+            <a class="m-1" href="?page={{ questions.paginator.num_pages }}">
+           <button>last</button>
+       </a>
+        {% endif %}
+
+    {% endif %}
 </span>
