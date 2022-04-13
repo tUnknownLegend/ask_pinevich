@@ -4,14 +4,22 @@
     <div class="col-2">
         <img class="avatar-question" src="{% static "img/bear.png" %}" alt="">
         <div class="rate">
-            <button class="w-1 m-1 text-danger border-0">-</button>
-            <h7 class="text-danger">{{ answer.rating }}</h7>
-            <button class="w-1 m-1 text-success border-0">+</button>
+            <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/answer/{{ answer.id }}/down">
+                <button class="w-1 m-1 text-danger border-0" type="submit">-</button>
+            </a>
+            {% if answer.rating >= 0 %}
+                <h7 class="text-success">{{ answer.rating }}</h7>
+            {% else %}
+                <h7 class="text-danger">{{ answer.rating }}</h7>
+            {% endif %}
+            <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/answer/{{ answer.id }}/up">
+                <button class="w-1 m-1 text-success border-0">+</button>
+            </a>
         </div>
     </div>
     <div class="col-10">
         <p style="height: 100px">{{ answer.text }}</p>
-        <span>
+        <span class="invisible">
             <input type="checkbox" class="form-check-input" id="correct">
             <label class="form-check-label">Correct</label>
         </span>

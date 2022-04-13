@@ -1,0 +1,15 @@
+{% load static %}
+
+<div class="rate">
+    <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/question/{{ question.id }}/down">
+        <button class="w-1 m-1 text-danger border-0" type="submit">-</button>
+    </a>
+    {% if question.rating >= 0 %}
+        <h7 class="text-success">{{ question.rating }}</h7>
+    {% else %}
+        <h7 class="text-danger">{{ question.rating }}</h7>
+    {% endif %}
+    <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/question/{{ question.id }}/up">
+        <button class="w-1 m-1 text-success border-0">+</button>
+    </a>
+</div>

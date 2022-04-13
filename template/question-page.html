@@ -13,10 +13,13 @@
 
     <hr class="my-4">
 
-    {% for answer in answers %}
+    {% if question.answers.all.count > 0 %}
+    {% for answer in question.answers.all %}
         {% include "inc/answer.html" %}
     {% endfor %}
-
+    {% else %}
+        <h3 class="m-3">No answers so far</h3>
+    {% endif %}
     <hr class="my-4">
 
     <div class="mb-3">

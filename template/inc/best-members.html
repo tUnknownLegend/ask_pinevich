@@ -1,6 +1,6 @@
 {% load static %}
 <div class="row justify-content-around">
-    {% for memberName in members %}
-        <a href="#" class="h6">{{ memberName.title }}</a>
+    {% for tagName in tags %}
+        <a href="#" class="h6">{{ tagName.author }}</a>
     {% endfor %}
 </div>
