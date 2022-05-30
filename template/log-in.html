@@ -1,5 +1,6 @@
 {% extends "inc/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block addHeader %}
     <title>Sign-In</title>
@@ -9,31 +10,21 @@
 {% endblock addHeader %}
 
 {% block header %}
-    {% include "inc/header-unauth.html" %}
+
 {% endblock header %}
 
 {% block content %}
-    <form class="form-signin mt-5">
-        <img class="logo" src="{% static "static/img/bear.png" %}" alt="">
-        <h1 class="h3 mb-3 fw-normal text-center">Log in</h1>
+    <form class="form-signin mt-5" action="/login/" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
 
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" maxlength="30">
-            <label for="floatingInput">Email address</label>
+            {% bootstrap_form form %}
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" maxlength="30">
-            <label for="floatingPassword">Password</label>
-        </div>
-        <div class="p-1">
-            <h6 class="text-danger"> Sorry, wrong password</h6>
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
+
         <div class="p-1">
             <button class="w-50 btn btn-lg btn-primary float-end" type="submit">Sign in</button>
-            <a class="register" href="sign_up.html">Don't have an account?</a>
+            <a class="register" href="{% url "sign-up" %}">Don't have an account?</a>
         </div>
     </form>
 {% endblock content %}

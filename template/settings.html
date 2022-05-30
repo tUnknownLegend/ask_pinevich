@@ -1,5 +1,6 @@
 {% extends "inc/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block addHeader %}
     <title>Settings</title>
@@ -9,76 +10,24 @@
 {% endblock addHeader %}
 
 {% block header %}
-    {% include "inc/header-logged-in.html" %}
+
 {% endblock header %}
 
 {% block content %}
     <div class="col-md-7 col-lg-8">
         <h4 class="mb-3 pt-3">Settings</h4>
-        <form class="needs-validation" novalidate>
-            <div class="row g-3">
-                <div class="col-sm-6">
-                    <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="Mario" value="Mario"
-                           required maxlength="30">
-                    <div class="invalid-feedback">
-                        Valid first name is required.
-                    </div>
-                </div>
+        <form class="needs-validation" novalidate action="/profile/edit/" method="post">
 
-                <div class="col-sm-6">
-                    <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Gayle" value="Gayle"
-                           required maxlength="50">
-                    <div class="invalid-feedback">
-                        Valid last name is required.
-                    </div>
-                </div>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
 
-                <div class="col-12">
-                    <label for="username" class="form-label">Username</label>
-                    <div class="input-group has-validation">
-                        <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" id="username" placeholder="MarioGayle"
-                               value="MarioGayle" required maxlength="50">
-                        <div class="invalid-feedback">
-                            Your username is required.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com"
-                           value="you@example.com" required maxlength="30">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
-                    <h6 class="text-danger m-1"> Email is already registered</h6>
-                </div>
-
-                <div class="col-md-5">
-                    <label for="country" class="form-label">Country <span class="text-muted">(Optional)</span>
-                    </label>
-                    <select class="form-select mb-1" id="country">
-                        <option value="">United States</option>
-                        <option>United Kingdom</option>
-                        <option>New Zealand</option>
-                        <option>Canada</option>
-                        <option>Ireland</option>
-                        <option>None</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Please select a valid country.
-                    </div>
-                </div>
-
+            <div class="form-floating">
+                {% bootstrap_form form %}
             </div>
 
             <div class="col-md-10">
                 <label class="form-label" for="customFile">Change avatar</label>
                 <img class="avatar-question m-3" src="{% static "img/bear.png" %}" alt="">
-                <input type="file" class="form-control w-75" id="customFile"/>
             </div>
 
             <hr class="my-4">

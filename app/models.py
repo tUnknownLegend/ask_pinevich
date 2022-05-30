@@ -2,24 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from collections import Counter
 
+
 # from django.utils import timezone
-
-'''
-from django.utils.translation import gettext_lazy as _
-# Create your models here.
-
-class User(AbstractUser):
-    # username = models.CharField(max_length=128, blank=False, unique=True, verbose_name='Email', name='email')
-    #email = models.EmailField(_("email address"), blank=True, unique=True)
-    # first_name = models.CharField(max_length=30)
-    # last_name = models.CharField(max_length=30)
-    # user_name = models.CharField(max_length=30)
-    # email = models.CharField(max_length=30)
-    # country = models.CharField(max_length=30)
-    # profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
-
-'''
-
 
 class Profile(models.Model):
     # first_name = models.CharField(max_length=30)
@@ -96,3 +80,15 @@ class Answer(models.Model):
 
     def __str__(self):
         return f"{self.author} on {self.question}"
+
+
+class LikeQuestion(models.Model):
+    article_like_question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    article_like_author = models.ForeignKey(User, on_delete=models.CASCADE)
+    article_like_value = models.SmallIntegerField(default=0)
+
+
+class LikeAnswer(models.Model):
+    article_like_question = models.ForeignKey('Answer', on_delete=models.CASCADE)
+    article_like_author = models.ForeignKey(User, on_delete=models.CASCADE)
+    article_like_value = models.SmallIntegerField(default=0)

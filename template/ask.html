@@ -1,36 +1,32 @@
 {% extends "inc/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block addHeader %}
-    <title>New Q</title>
+    <title>New Question</title>
 {% endblock addHeader %}
 
 {% block header %}
-    {% include "inc/header-logged-in.html" %}
+
 {% endblock header %}
 
 {% block content %}
     <h2 class="mt-5">Ask question</h2>
-    <form>
+    {% if user.is_authenticated %}
+        <form action="/ask/" method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="form-floating">
+                {% bootstrap_form form %}
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    {% else %}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Question title</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                   maxlength="30">
-            <div id="emailHelp" class="form-text">e.g. How to buy bitcoin?</div>
+            <a class="register" href="{% url "sign-up" %}">Login to ask question</a>
         </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Question body</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                      maxlength="1000"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="questionTags" class="form-label">Tags</label>
-            <input type="text" class="form-control" id="questionTags" aria-describedby="emailHelp"
-                   maxlength="100">
-            <div id="tagsHelp" class="form-text">e.g. bitcoin</div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    {% endif %}
 {% endblock content %}
 
 {% block side-panel %}

@@ -16,6 +16,11 @@
 
 <body class="d-flex flex-column h-100">
 <header>
+    {% if user.is_authenticated %}
+        {% include "inc/header-logged-in.html" %}
+    {% else %}
+        {% include "inc/header-unauth.html" %}
+    {% endif %}
     {% block header %}
     {% endblock header %}
 </header>

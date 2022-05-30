@@ -14,5 +14,5 @@ urlpatterns = [
     path('tag/<str:s>', views.tag, name="tag"),
     path('login/', views.log_in, name="log-in"),
     path('signup/', views.sign_up, name="sign-up"),
-    path('settings/', views.settings, name="settings")
+    path('profile/edit/', views.settings, name="settings")
 ]

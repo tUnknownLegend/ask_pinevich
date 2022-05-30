@@ -1,11 +1,13 @@
 {% extends "inc/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
+
 {% block addHeader %}
     <title>Question</title>
 {% endblock addHeader %}
 
 {% block header %}
-    {% include "inc/header-logged-in.html" %}
+
 {% endblock header %}
 
 {% block content %}
@@ -14,20 +16,31 @@
     <hr class="my-4">
 
     {% if question.answers.all.count > 0 %}
-    {% for answer in question.answers.all %}
-        {% include "inc/answer.html" %}
-    {% endfor %}
+        {% for answer in question.answers.all %}
+            {% include "inc/answer.html" %}
+        {% endfor %}
     {% else %}
         <h3 class="m-3">No answers so far</h3>
     {% endif %}
     <hr class="my-4">
 
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Your answer</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                  placeholder="Enter answer"></textarea>
-        <button type="submit" class="btn btn-primary mt-2">Answer</button>
-    </div>
+    {% if user.is_authenticated %}
+        <form action="/question/{{ question.id }}" method="post">
+            <div class="mb-3">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% bootstrap_form form %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Answer</button>
+        </form>
+    {% else %}
+        <div class="mb-3">
+            <a class="register" href="{% url "sign-up" %}">Login to add answer</a>
+        </div>
+    {% endif %}
+
+
 {% endblock content %}
 
 {% block side-panel %}
